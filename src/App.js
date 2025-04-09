@@ -19,19 +19,19 @@ class App {
     this.consequence(CarList);
   }
 
-  //입력받는 함수
+  //입력받는 함수, return 값 : 경주 차 이름, 시도횟수수
   async getInput() {
     const Input = await Console.readLineAsync("경주할 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
     const CarName = Input.split(',');
     for (let i = 0; i < CarName.length; i++) {
       if (CarName[i].length > 5) {
-        throw new Error("이름은 5글자 이하여야 합니다.\n");
+        throw new Error("[ERROR]이름은 5글자 이하여야 합니다.\n");
       }
     }
     const Chance = await Console.readLineAsync("시도할 횟수는 몇 회인가요?\n");
 
     if (isNaN(Chance)) {
-      throw new Error("숫자를 입력해야 합니다.\n");
+      throw new Error("[ERROR]숫자를 입력해야 합니다.\n");
     }
 
     return { CarName, Chance };
@@ -47,7 +47,7 @@ class App {
   }
   
 
-  //전진 횟수 count + print 함수, return X
+  //전진 횟수 세고 각 횟수마다 결과 출력하는 함수, return X
   raceProcess(CarList) {
     CarList
       .forEach(car => {
