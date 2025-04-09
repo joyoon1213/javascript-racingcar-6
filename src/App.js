@@ -19,7 +19,7 @@ class App {
     this.consequence(CarList);
   }
 
-  //입력받는 함수, return 값 : 경주 차 이름, 시도횟수수
+  //입력받는 함수, return 값 : 경주 차 이름, 시도횟수
   async getInput() {
     const Input = await Console.readLineAsync("경주할 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n");
     const CarName = Input.split(',');
